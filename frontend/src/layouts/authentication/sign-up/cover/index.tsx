@@ -12,7 +12,7 @@ import FormField from "layouts/applications/wizard/components/FormField";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import authService from "services/auth-service";
+// import authService from "services/auth-service";
 import { useContext, useState } from "react";
 import { AuthContext } from "context";
 
@@ -48,14 +48,14 @@ function Cover(): JSX.Element {
   } = useForm<FormData>({
     resolver: yupResolver(validationSchema) as any,
   });
-  const onSubmit = async (data: FormData) => {
-    try {
-      const response = await authService.register(data);
-      authContext.login(response.token);
-    } catch (res: any) {
-      setCredentialsError(res.errors.map((e: { msg: string }) => e.msg).join(", "));
-    }
-  };
+  // const onSubmit = async (data: FormData) => {
+  //   try {
+  //     const response = await authService.register(data);
+  //     authContext.login(response.token);
+  //   } catch (res: any) {
+  //     setCredentialsError(res.errors.map((e: { msg: string }) => e.msg).join(", "));
+  //   }
+  // };
 
   return (
     <CoverLayout image={bgImage}>
@@ -79,7 +79,7 @@ function Cover(): JSX.Element {
           </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form" method="POST" onSubmit={handleSubmit(onSubmit)}>
+          <MDBox component="form" role="form" method="POST">
             <MDBox mb={2}>
               <MDInput
                 type="text"

@@ -21,32 +21,42 @@ import SignInIllustration from "layouts/authentication/sign-in/illustration";
 import SignInCover from "layouts/authentication/sign-up/cover";
 import ResetCover from "layouts/authentication/reset-password/cover";
 import Dashboard from "layouts/Dashboard";
-import NewService from "layouts/NewService";
+import ProductSearch from "layouts/ProductSearch/ProductSearch";
 
 const routes = [
   {
     type: "collapse",
     name: "Dashboard",
     key: "dashboard",
-    icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+    icon: <Icon fontSize="small">dashboard</Icon>,
     noCollapse: true,
   },
   {
     type: "collapse",
-    name: "Serviços",
-    key: "services",
-    icon: <Icon fontSize="small">home_repair_service</Icon>,
-    route: "/dashboard",
-    collapse: [
-      {
-        name: "Novo Serviço",
-        key: "new-service",
-        route: "/new-service",
-        component: <NewService />,
-      },
-    ],
+    name: "Lojas",
+    key: "shops",
+    icon: <Icon fontSize="small">storefronticon</Icon>,
+    route: "/Produtos",
+    component: <ProductSearch />,
+    noCollapse: true,
+    // collapse: [
+    //   // {
+    //   //   name: "Shopee",
+    //   //   key: "shops",
+    //   //   icon: <Icon fontSize="small">storefronticon</Icon>,
+    //   //   route: "/shopee",
+    //   //   component: <Shopee />,
+    //   // },
+    //   // {
+    //   //   name: "Aliexpress",
+    //   //   key: "shops",
+    //   //   icon: <Icon fontSize="small">storefronticon</Icon>,
+    //   //   route: "/aliexpress",
+    //   //   component: <Aliexpress />,
+    //   // },
+    // ],
   },
   {
     type: "auth",

@@ -1,32 +1,31 @@
 import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDInput from "components/MDInput";
-import MDBadge from "components/MDBadge";
-import Breadcrumbs from "examples/Breadcrumbs";
-import NotificationItem from "examples/Items/NotificationItem";
+import InputAdornment from "@mui/material/InputAdornment";
+import Tooltip from "@mui/material/Tooltip";
+import SearchIcon from "@mui/icons-material/Search";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import TikTokIcon from "@mui/icons-material/MusicNote"; // TikTok custom
+
 import {
   navbar,
   navbarContainer,
   navbarRow,
-  navbarIconButton,
   navbarDesktopMenu,
   navbarMobileMenu,
 } from "examples/Navbars/DashboardNavbar/styles";
-import {
-  useMaterialUIController,
-  setTransparentNavbar,
-  setMiniSidenav,
-  setOpenConfigurator,
-} from "context";
-import Logout from "layouts/authentication/logout";
 
-// Declaring prop types for DashboardNavbar
+import { useMaterialUIController, setTransparentNavbar, setMiniSidenav } from "context";
+
 interface Props {
   absolute?: boolean;
   light?: boolean;
@@ -39,81 +38,24 @@ function DashboardNavbar({ absolute, light, isMini, title }: Props): JSX.Element
     "fixed" | "absolute" | "relative" | "static" | "sticky"
   >();
   const [controller, dispatch] = useMaterialUIController();
-  const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
-  const [openMenuUser, setOpenMenuUser] = useState<any>(false);
-  const [openMenuNotifications, setOpenMenuNotifications] = useState<any>(false);
+  const { miniSidenav, transparentNavbar, fixedNavbar, darkMode } = controller;
   const route = useLocation().pathname.split("/").slice(1);
 
   useEffect(() => {
-    // Setting the navbar type
-    if (fixedNavbar) {
-      setNavbarType("sticky");
-    } else {
-      setNavbarType("static");
-    }
+    if (fixedNavbar) setNavbarType("sticky");
+    else setNavbarType("static");
 
-    // A function that sets the transparent state of the navbar.
     function handleTransparentNavbar() {
       setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
     }
 
-    /** 
-     The event listener that's calling the handleTransparentNavbar function when 
-     scrolling the window.
-    */
     window.addEventListener("scroll", handleTransparentNavbar);
-
-    // Call the handleTransparentNavbar function to set the state with the initial value.
     handleTransparentNavbar();
-
-    // Remove event listener on cleanup
     return () => window.removeEventListener("scroll", handleTransparentNavbar);
   }, [dispatch, fixedNavbar]);
 
   const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
-  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-  const handleOpenMenuUser = (event: any) => setOpenMenuUser(event.currentTarget);
-  const handleCloseMenuUser = () => setOpenMenuUser(false);
-  const handleOpenMenuNotifications = (event: any) => setOpenMenuNotifications(event.currentTarget);
-  const handleCloseMenuNotifications = () => setOpenMenuNotifications(false);
 
-  // Render the notifications menu
-  const renderMenuUser = () => (
-    <Menu
-      anchorEl={openMenuUser}
-      anchorReference={null}
-      anchorOrigin={{
-        vertical: "bottom",
-        horizontal: "left",
-      }}
-      open={Boolean(openMenuUser)}
-      onClose={handleCloseMenuUser}
-      sx={{ mt: 2 }}
-    >
-      <Logout />
-    </Menu>
-  );
-
-  // Render the notifications menu
-  const renderMenuNotifications = () => (
-    <Menu
-      anchorEl={openMenuNotifications}
-      anchorReference={null}
-      anchorOrigin={{
-        vertical: "bottom",
-        horizontal: "left",
-      }}
-      open={Boolean(openMenuNotifications)}
-      onClose={handleCloseMenuNotifications}
-      sx={{ mt: 2 }}
-    >
-      <NotificationItem icon={<Icon>email</Icon>} title="Checar novas mensagens" />
-      <NotificationItem icon={<Icon>podcasts</Icon>} title="Gerenciar sessões de podcast" />
-      <NotificationItem icon={<Icon>shopping_cart</Icon>} title="Pagamento concluído com sucesso" />
-    </Menu>
-  );
-
-  // Styles for the navbar icons
   const iconsStyle = ({
     palette: { dark, white, text },
     functions: { rgba },
@@ -123,11 +65,7 @@ function DashboardNavbar({ absolute, light, isMini, title }: Props): JSX.Element
   }) => ({
     color: () => {
       let colorValue = light || darkMode ? white.main : dark.main;
-
-      if (transparentNavbar && !light) {
-        colorValue = darkMode ? rgba(text.main, 0.6) : text.main;
-      }
-
+      if (transparentNavbar && !light) colorValue = darkMode ? rgba(text.main, 0.6) : text.main;
       return colorValue;
     },
   });
@@ -139,65 +77,82 @@ function DashboardNavbar({ absolute, light, isMini, title }: Props): JSX.Element
       sx={(theme) => navbar(theme, { transparentNavbar, absolute, light, darkMode })}
     >
       <Toolbar sx={navbarContainer}>
+        {/* Breadcrumbs + Menu */}
         <MDBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-          <Breadcrumbs
-            icon="home"
-            title={title ? title : route[route.length - 1]}
-            route={route}
-            light={light}
-          />
           <IconButton sx={navbarDesktopMenu} onClick={handleMiniSidenav} size="small" disableRipple>
             <Icon fontSize="medium" sx={iconsStyle}>
               {miniSidenav ? "menu_open" : "menu"}
             </Icon>
           </IconButton>
         </MDBox>
-        {isMini ? null : (
-          <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
+
+        {!isMini && (
+          <MDBox
+            sx={(theme) => navbarRow(theme, { isMini })}
+            alignItems="center"
+            display="flex"
+            gap={2}
+          >
+            {/* Search */}
             <MDBox pr={1}>
-              <MDInput label="Procurar" />
+              <MDInput
+                label="Procurar produtos..."
+                size="small"
+                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                  if (e.key === "Enter") {
+                    const target = e.target as HTMLInputElement;
+                    const query = target.value;
+                    window.location.href = `/product-search?query=${encodeURIComponent(query)}`;
+                  }
+                }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
             </MDBox>
-            <MDBox color={light ? "white" : "inherit"}>
-              <IconButton
-                size="small"
-                color="inherit"
-                sx={navbarIconButton}
-                onClick={handleOpenMenuUser}
-              >
-                <Icon sx={iconsStyle}>account_circle</Icon>
-              </IconButton>
-              {renderMenuUser()}
-              <IconButton
-                size="small"
-                disableRipple
-                color="inherit"
-                sx={navbarMobileMenu}
-                onClick={handleMiniSidenav}
-              >
-                <Icon sx={iconsStyle} fontSize="medium">
-                  {miniSidenav ? "menu_open" : "menu"}
-                </Icon>
-              </IconButton>
-              <IconButton
-                size="small"
-                disableRipple
-                color="inherit"
-                sx={navbarIconButton}
-                onClick={handleConfiguratorOpen}
-              >
-                <Icon sx={iconsStyle}>settings</Icon>
-              </IconButton>
-              <IconButton
-                size="small"
-                color="inherit"
-                sx={navbarIconButton}
-                onClick={handleOpenMenuNotifications}
-              >
-                <MDBadge badgeContent={9} color="error" size="xs" circular>
-                  <Icon sx={iconsStyle}>notifications</Icon>
-                </MDBadge>
-              </IconButton>
-              {renderMenuNotifications()}
+
+            {/* Botões sociais */}
+            <MDBox display="flex" alignItems="center" gap={1}>
+              <Tooltip title="Instagram">
+                <IconButton
+                  size="small"
+                  color="inherit"
+                  onClick={() => window.open("https://instagram.com/sua_conta", "_blank")}
+                >
+                  <InstagramIcon sx={iconsStyle} />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="YouTube">
+                <IconButton
+                  size="small"
+                  color="inherit"
+                  onClick={() => window.open("https://youtube.com/sua_conta", "_blank")}
+                >
+                  <YouTubeIcon sx={iconsStyle} />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Twitter">
+                <IconButton
+                  size="small"
+                  color="inherit"
+                  onClick={() => window.open("https://twitter.com/sua_conta", "_blank")}
+                >
+                  <TwitterIcon sx={iconsStyle} />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="TikTok">
+                <IconButton
+                  size="small"
+                  color="inherit"
+                  onClick={() => window.open("https://tiktok.com/@sua_conta", "_blank")}
+                >
+                  <TikTokIcon sx={iconsStyle} />
+                </IconButton>
+              </Tooltip>
             </MDBox>
           </MDBox>
         )}
@@ -206,7 +161,6 @@ function DashboardNavbar({ absolute, light, isMini, title }: Props): JSX.Element
   );
 }
 
-// Declaring default props for DashboardNavbar
 DashboardNavbar.defaultProps = {
   absolute: false,
   light: false,

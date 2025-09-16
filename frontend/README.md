@@ -30,12 +30,12 @@ Antes de começar, você precisará ter as seguintes ferramentas instaladas em s
 
 ```bash
 # Clone o repositório
-git clone git clone https://github.com/wesleyvieiraa/api-servicos-unicesumar.git
+git clone git clone https://github.com/joaovitorchi/Farejando
 ```
 
 ```bash
 # Acesse a pasta do projeto
-cd api-servicos-unicesumar/frontend
+cd Farejando/frontend
 ```
 
 ```bash
@@ -50,7 +50,7 @@ npm start
 
 ## 📬 Contato
 
-Em caso de dúvidas ou sugestões, entre em contato através do email: w.g20@hotmail.com
+Em caso de dúvidas ou sugestões, entre em contato através do email: combatchi@live.com
 
 
 ## Autores

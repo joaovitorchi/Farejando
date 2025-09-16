@@ -131,12 +131,12 @@ interface Types {
 
 const colors: Types = {
   background: {
-    default: "#f0f2f5",
+    default: "#8d4925",
   },
 
   text: {
-    main: "#7b809a",
-    focus: "#7b809a",
+    main: "#ffff",
+    focus: "#ffff",
   },
 
   transparent: {
@@ -144,24 +144,24 @@ const colors: Types = {
   },
 
   white: {
-    main: "#ffffff",
-    focus: "#ffffff",
+    main: "#ffff",
+    focus: "#ffff",
   },
 
   black: {
-    light: "#000000",
-    main: "#000000",
-    focus: "#000000",
+    light: "#ffff",
+    main: "#ffff",
+    focus: "#ffff",
   },
 
   primary: {
-    main: "#e91e63",
-    focus: "#e91e63",
+    main: "#ffb48a",
+    focus: "#ffb48a",
   },
 
   secondary: {
-    main: "#7b809a",
-    focus: "#8f93a9",
+    main: "#ffff",
+    focus: "#ffff",
   },
 
   info: {
@@ -190,8 +190,8 @@ const colors: Types = {
   },
 
   dark: {
-    main: "#344767",
-    focus: "#2c3c58",
+    main: "#ffff",
+    focus: "#ffff",
   },
 
   grey: {
@@ -208,18 +208,18 @@ const colors: Types = {
 
   gradients: {
     primary: {
-      main: "#EC407A",
-      state: "#D81B60",
+      main: "#ffb48a",
+      state: "#ffb48a",
     },
 
     secondary: {
-      main: "#747b8a",
-      state: "#495361",
+      main: "#ffb48a",
+      state: "#ffb48a",
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "#ffb48a",
+      state: "#ffb48a",
     },
 
     success: {
@@ -243,8 +243,8 @@ const colors: Types = {
     },
 
     dark: {
-      main: "#42424a",
-      state: "#191919",
+      main: "#8d4925",
+      state: "#8d4925",
     },
   },
 
@@ -317,7 +317,7 @@ const colors: Types = {
     },
 
     secondary: {
-      background: "#d7d9e1",
+      background: "#a75f3a",
       text: "#6c757d",
     },
 
@@ -354,8 +354,8 @@ const colors: Types = {
 
   coloredShadows: {
     primary: "#e91e62",
-    secondary: "#110e0e",
-    info: "#00bbd4",
+    secondary: "#7e3c19",
+    info: "#ffb48a",
     success: "#4caf4f",
     warning: "#ff9900",
     error: "#f44336",

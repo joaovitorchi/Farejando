@@ -162,7 +162,7 @@ const colors: Types = {
   },
 
   secondary: {
-    main: "#7b809a",
+    main: "#a75f3a",
     focus: "#8f93a9",
   },
 
@@ -215,7 +215,7 @@ const colors: Types = {
     },
 
     secondary: {
-      main: "#747b8a",
+      main: "#a75f3a",
       state: "#495361",
     },
 
@@ -314,12 +314,12 @@ const colors: Types = {
 
   badgeColors: {
     primary: {
-      background: "#f8b3ca",
-      text: "#cc084b",
+      background: "#ffb48a",
+      text: "#ffb48a",
     },
 
     secondary: {
-      background: "#d7d9e1",
+      background: "#a75f3a",
       text: "#6c757d",
     },
 
@@ -355,7 +355,7 @@ const colors: Types = {
   },
 
   coloredShadows: {
-    primary: "#e91e62",
+    primary: "#ffb48a",
     secondary: "#110e0e",
     info: "#00bbd4",
     success: "#4caf4f",

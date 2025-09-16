@@ -1,0 +1,17 @@
+SHOPEE
+AppID: 18120830005
+Senha: 2T4ASTJJMTPWUY2M4XBABMJ3G4DKBRSR
+
+ALIEXPRESS
+AWIN_CONFIG = {
+    'publisher_id': '1862482',
+    'access_token': '13ac3f30-d08a-480a-8e2c-c0800814b54f',
+    'advertiser_id': '17729',
+    'api_url': 'https://api.awin.com/',
+    'semaphore': Semaphore(2)  # Limite de 2 requisições por minuto
+}
+
+ALIEXPRESS_CONFIG = {
+    'app_key': '513368',
+    'app_secret': 'YrBLMX8KOATgtw7718cMJADCOrrM8llt', 
+    'access_token': '50000301a10lGbsndYBhSC19e61df9K0XihHJjVhz1Cg4AqvhMrYsumxxjvGpob1CVex'

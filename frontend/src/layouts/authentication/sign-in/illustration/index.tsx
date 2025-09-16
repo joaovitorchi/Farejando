@@ -7,7 +7,7 @@ import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
 import bgImage from "assets/images/illustrations/illustration-reset.jpg";
-import authService from "services/auth-service";
+//import authService from "services/auth-service";
 import { AuthContext } from "context";
 
 function Illustration(): JSX.Element {
@@ -54,12 +54,12 @@ function Illustration(): JSX.Element {
     const newUser = { email: inputs.email, password: inputs.password };
     addUserHandler(newUser);
 
-    try {
-      const response = await authService.login(newUser);
-      authContext.login(response.token);
-    } catch (res: any) {
-      setCredentialsError(res.errors.map((e: { msg: string }) => e.msg).join(", "));
-    }
+    // try {
+    //   //const response = await authService.login(newUser);
+    //   authContext.login(response.token);
+    // } catch (res: any) {
+    //   setCredentialsError(res.errors.map((e: { msg: string }) => e.msg).join(", "));
+    // }
 
     return () => {
       setInputs({
