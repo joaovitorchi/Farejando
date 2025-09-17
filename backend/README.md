@@ -77,7 +77,7 @@ A documentação do swagger pode ser acessada através da rota `dev`
 
 ## 📬 Contato
 
-Em caso de dúvidas ou sugestões, entre em contato através do email: w.g20@hotmail.com
+Em caso de dúvidas ou sugestões, entre em contato através do email: combatchi@live.com
 ## Autores
 
 - [@joaovitorchi](https://github.com/joaovitorchi)
