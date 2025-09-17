@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Farejando API",
+    "version": "1.0.0",
+    "description": "API para busca, cadastro e gestão de ofertas de afiliados."
+  },
+  "servers": [{ "url": "http://localhost:3000" }],
+  "paths": {
+    "/offers": {
+      "get": {
+        "summary": "Buscar todas as ofertas (com filtro por termo)",
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "description": "Termo de busca (ex: nike)",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de ofertas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "offers": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Offer" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar nova oferta",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/OfferInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Oferta criada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Offer" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/offers/{id}": {
+      "get": {
+        "summary": "Buscar oferta pelo id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detalhes da oferta",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Offer" }
+              }
+            }
+          },
+          "404": { "description": "Oferta não encontrada" }
+        }
+      },
+      "put": {
+        "summary": "Atualizar oferta existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/OfferInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Oferta atualizada",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Offer" }
+              }
+            }
+          },
+          "404": { "description": "Oferta não encontrada" }
+        }
+      },
+      "delete": {
+        "summary": "Deletar oferta pelo id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Oferta deletada com sucesso" },
+          "404": { "description": "Oferta não encontrada" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Offer": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "example": 42 },
+          "title": { "type": "string", "example": "Tênis Nike Air Max" },
+          "price": { "type": "number", "format": "float", "example": 399.9 },
+          "link": {
+            "type": "string",
+            "example": "https://awin-link.com/oferta/123"
+          },
+          "source": { "type": "string", "example": "Awin" },
+          "created_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "OfferInput": {
+        "type": "object",
+        "required": ["title", "price", "link", "source"],
+        "properties": {
+          "title": { "type": "string", "example": "Tênis Nike Air Max" },
+          "price": { "type": "number", "format": "float", "example": 399.9 },
+          "link": {
+            "type": "string",
+            "example": "https://awin-link.com/oferta/123"
+          },
+          "source": { "type": "string", "example": "Awin" }
+        }
+      }
+    }
+  }
+}
