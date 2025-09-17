@@ -1,4 +1,4 @@
-# 🚀 Backend da Aplicação Mão Amiga
+# 🚀 Backend da Aplicação Farejando
 
 Bem-vindo ao backend da nossa aplicação! Este projeto foi desenvolvido utilizando **Node.js** e segue um padrão arquitetural baseado em uma variação de **MVC**.
 
@@ -48,13 +48,13 @@ Crie um arquivo `.env` na raiz do projeto e configure-o de acordo com o arquivo 
 Clone o projeto
 
 ```bash
-  git clone https://github.com/wesleyvieiraa/api-servicos-unicesumar.git
+  git clone https://github.com/joaovitorchi/farejando.git
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd api-servicos-unicesumar/backend
+  cd farejando/backend
 ```
 
 Instale as dependências

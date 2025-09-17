@@ -1,4 +1,4 @@
-# 🌟 Frontend da Aplicação Mão Amiga 🌟
+# 🌟 Frontend da Aplicação Farejando 🌟
 
 ![Node.js](https://img.shields.io/badge/Node.js-20.15.0-339933?style=for-the-badge&logo=node.js)
 ![React](https://img.shields.io/badge/React-16.8.0-61DAFB?style=for-the-badge&logo=react)
