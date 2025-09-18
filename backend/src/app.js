@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/shopee", require("./routes/shopeeRoutes"));
-app.use("/aliexpress", require("./routes/aliExpressRoutes"));
+app.use("/aliexpress", require("./routes/aliexpressRoutes"));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/offers", offerRoutes);
 app.use(errorHandler);

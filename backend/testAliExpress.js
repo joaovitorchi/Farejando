@@ -1,6 +1,6 @@
 const {
   searchAliExpressProducts,
-} = require("./src/services/aliExpressService");
+} = require("./src/services/aliexpressService");
 
 async function main() {
   try {

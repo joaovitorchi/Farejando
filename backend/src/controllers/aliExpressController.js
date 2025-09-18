@@ -1,4 +1,4 @@
-const { searchAliExpressProducts } = require("../services/aliExpressService");
+const { searchAliExpressProducts } = require("../services/aliexpressService");
 
 async function getAliExpressOffers(req, res, next) {
   try {

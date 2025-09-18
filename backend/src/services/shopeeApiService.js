@@ -1,7 +1,7 @@
 const axios = require("axios");
 const crypto = require("crypto");
 
-)
+
 const PARTNER_ID = 1234567;
 const PARTNER_KEY = "abcdeFGHlmnopqrstuvwxyz1234567890";
 const SHOP_ID = 222333444;
