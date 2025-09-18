@@ -210,18 +210,18 @@ const colors: Types = {
 
   gradients: {
     primary: {
-      main: "#EC407A",
-      state: "#D81B60",
+      main: "#ffb48a",
+      state: "#ffb48a",
     },
 
     secondary: {
-      main: "#a75f3a",
-      state: "#495361",
+      main: "#ffb48a",
+      state: "#ffb48a",
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "#ffb48a",
+      state: "#ffb48a",
     },
 
     success: {
@@ -245,8 +245,8 @@ const colors: Types = {
     },
 
     dark: {
-      main: "#323a54",
-      state: "#1a2035",
+      main: "#8d4925",
+      state: "#8d4925",
     },
   },
 

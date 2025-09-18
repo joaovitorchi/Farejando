@@ -32,3 +32,35 @@
 {"level":"info","message":"GET /api-docs/swagger-ui-standalone-preset.js","timestamp":"2025-09-17T13:55:08.557Z"}
 {"level":"info","message":"GET /api-docs/swagger-ui-init.js","timestamp":"2025-09-17T13:55:08.561Z"}
 {"level":"info","message":"GET /api-docs/favicon-32x32.png","timestamp":"2025-09-17T13:55:09.365Z"}
+{"level":"info","message":"GET /","timestamp":"2025-09-18T11:47:12.503Z"}
+{"level":"info","message":"GET /api-docs/","timestamp":"2025-09-18T11:47:20.578Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui.css","timestamp":"2025-09-18T11:47:20.647Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-bundle.js","timestamp":"2025-09-18T11:47:20.651Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-standalone-preset.js","timestamp":"2025-09-18T11:47:20.653Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-init.js","timestamp":"2025-09-18T11:47:20.656Z"}
+{"level":"info","message":"GET /api-docs/","timestamp":"2025-09-18T12:08:02.503Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui.css","timestamp":"2025-09-18T12:08:02.582Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-bundle.js","timestamp":"2025-09-18T12:08:02.586Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-standalone-preset.js","timestamp":"2025-09-18T12:08:02.588Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-init.js","timestamp":"2025-09-18T12:08:02.591Z"}
+{"level":"info","message":"GET /api-docs/favicon-32x32.png","timestamp":"2025-09-18T12:08:03.397Z"}
+{"level":"info","message":"GET /offers","timestamp":"2025-09-18T12:08:19.382Z"}
+{"level":"error","message":"Request failed with status code 404","timestamp":"2025-09-18T12:08:20.013Z"}
+{"level":"info","message":"GET /offers","timestamp":"2025-09-18T12:08:54.360Z"}
+{"level":"error","message":"Request failed with status code 404","timestamp":"2025-09-18T12:08:54.802Z"}
+{"level":"info","message":"GET /offers","timestamp":"2025-09-18T12:10:50.966Z"}
+{"level":"error","message":"Request failed with status code 404","timestamp":"2025-09-18T12:10:51.762Z"}
+{"level":"info","message":"GET /offers","timestamp":"2025-09-18T12:11:29.649Z"}
+{"level":"error","message":"searchAwinProducts is not a function","timestamp":"2025-09-18T12:11:29.654Z"}
+{"level":"info","message":"GET /offers/shopee","timestamp":"2025-09-18T12:23:32.945Z"}
+{"level":"info","message":"GET /shopee/products","timestamp":"2025-09-18T12:30:02.164Z"}
+{"level":"info","message":"GET /aliexpress/offers","timestamp":"2025-09-18T12:41:59.641Z"}
+{"level":"info","message":"GET /aliexpress/offers","timestamp":"2025-09-18T12:43:56.099Z"}
+{"level":"info","message":"GET /api-docs/","timestamp":"2025-09-18T12:44:03.526Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui.css","timestamp":"2025-09-18T12:44:03.619Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-bundle.js","timestamp":"2025-09-18T12:44:03.622Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-standalone-preset.js","timestamp":"2025-09-18T12:44:03.623Z"}
+{"level":"info","message":"GET /api-docs/swagger-ui-init.js","timestamp":"2025-09-18T12:44:03.629Z"}
+{"level":"info","message":"GET /api-docs/favicon-32x32.png","timestamp":"2025-09-18T12:44:04.324Z"}
+{"level":"info","message":"GET /aliexpress/offers","timestamp":"2025-09-18T12:46:12.930Z"}
+{"level":"info","message":"GET /aliexpress/offers","timestamp":"2025-09-18T12:49:14.780Z"}

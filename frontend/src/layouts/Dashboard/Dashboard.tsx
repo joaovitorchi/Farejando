@@ -1,10 +1,9 @@
-// src/layouts/Dashboard/Dashboard.tsx
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router-dom"; // Para redirecionamento
+import { useNavigate } from "react-router-dom";
 
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
@@ -50,7 +49,6 @@ export function Dashboard() {
   const navigate = useNavigate();
 
   const handleStoreClick = (storeName: string) => {
-    // Redireciona para a página de pesquisa com filtro da loja
     navigate(`/Produtos?store=${encodeURIComponent(storeName)}`);
   };
 

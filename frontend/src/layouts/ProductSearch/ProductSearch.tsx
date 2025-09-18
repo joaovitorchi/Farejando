@@ -1,8 +1,7 @@
-// src/layouts/ProductSearch/ProductSearch.tsx
 import { useState, ChangeEvent, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // para pegar query params
+import { useLocation } from "react-router-dom"; 
 
-// Material Dashboard Pro components
+
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MDBox from "components/MDBox";
@@ -10,7 +9,7 @@ import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
-// MUI
+
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -21,10 +20,10 @@ import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-// Icones
+
 import SearchIcon from "@mui/icons-material/Search";
 
-// Tipo de produto
+
 type Product = {
   id: number;
   name: string;
@@ -34,7 +33,7 @@ type Product = {
   image: string;
 };
 
-// Hook para ler query string
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -46,7 +45,7 @@ function ProductSearch() {
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
 
-  // filtros
+
   const [categories, setCategories] = useState<string[]>([]);
   const [stores, setStores] = useState<string[]>(initialStoreFilter ? [initialStoreFilter] : []);
   const [priceMin, setPriceMin] = useState<string>("");
@@ -88,7 +87,7 @@ function ProductSearch() {
     },
   ];
 
-  // Função para alternar filtros (categoria/loja)
+
   const toggleFilter = (
     list: string[],
     setList: React.Dispatch<React.SetStateAction<string[]>>,
@@ -112,7 +111,7 @@ function ProductSearch() {
 
   const filteredProducts = applyFilters();
 
-  // Atualiza stores se a query string mudar
+
   useEffect(() => {
     if (initialStoreFilter) {
       setStores([initialStoreFilter]);
@@ -140,7 +139,7 @@ function ProductSearch() {
           {/* Sidebar de filtros */}
           <Grid item xs={12} md={3}>
             <Card>
-              <MDBox p={2}>
+              <MDBox bgcolor="#ffb48a" borderRadius="lg" shadow="lg" opacity={1} p={2}>
                 <MDTypography variant="h6">Filtros</MDTypography>
 
                 {/* Categoria */}
@@ -211,7 +210,7 @@ function ProductSearch() {
               {filteredProducts.length > 0 ? (
                 filteredProducts.map((product) => (
                   <Grid item xs={12} sm={6} md={4} key={product.id}>
-                    <Card>
+                    <Card sx={{ bgcolor: "#ffb48a" }}>
                       <CardMedia
                         component="img"
                         height="200"

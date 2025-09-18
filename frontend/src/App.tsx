@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useState, useEffect, useMemo, ReactElement, JSXElementConstructor, Key } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
@@ -19,7 +18,7 @@ import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "co
 import brandWhite from "assets/images/logo.png";
 import brandDark from "assets/images/logo.png";
 
-// Páginas adicionais
+
 import Dashboard from "layouts/Dashboard";
 import ProductSearch from "layouts/ProductSearch/ProductSearch";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
@@ -43,13 +42,13 @@ export default function App() {
   const [rtlCache, setRtlCache] = useState<any>(null);
   const { pathname } = useLocation();
 
-  // Cria cache para RTL
+
   useMemo(() => {
     const cacheRtl = createCache({ key: "rtl", stylisPlugins: [rtlPlugin] });
     setRtlCache(cacheRtl);
   }, []);
 
-  // Sidenav hover
+
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
       setMiniSidenav(dispatch, false);
@@ -64,15 +63,15 @@ export default function App() {
     }
   };
 
-  // Configurator
+
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
 
-  // Atualiza direção do layout
+
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
 
-  // Scroll to top ao trocar de rota
+
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement!.scrollTop = 0;
@@ -103,7 +102,7 @@ export default function App() {
   //   </MDBox>
   // );
 
-  // Renderiza Sidenav + Configurator
+
   const renderLayoutComponents = () => (
     <>
       <Sidenav
@@ -119,7 +118,7 @@ export default function App() {
     </>
   );
 
-  // Gera rotas recursivamente
+
   const getRoutes = (allRoutes: any[]): ReactElement[] =>
     allRoutes.flatMap(
       (route: {

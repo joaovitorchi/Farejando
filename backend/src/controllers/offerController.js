@@ -1,4 +1,3 @@
-// /src/controllers/offerController.js
 const { searchAwinProducts } = require("../services/awinService");
 
 async function getOffers(req, res, next) {
