@@ -18,7 +18,6 @@ import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "co
 import brandWhite from "assets/images/logo.png";
 import brandDark from "assets/images/logo.png";
 
-
 import Dashboard from "layouts/Dashboard";
 import ProductSearch from "layouts/ProductSearch/ProductSearch";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
@@ -42,12 +41,10 @@ export default function App() {
   const [rtlCache, setRtlCache] = useState<any>(null);
   const { pathname } = useLocation();
 
-
   useMemo(() => {
     const cacheRtl = createCache({ key: "rtl", stylisPlugins: [rtlPlugin] });
     setRtlCache(cacheRtl);
   }, []);
-
 
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
@@ -63,14 +60,11 @@ export default function App() {
     }
   };
 
-
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-
 
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
-
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -102,7 +96,6 @@ export default function App() {
   //   </MDBox>
   // );
 
-
   const renderLayoutComponents = () => (
     <>
       <Sidenav
@@ -117,7 +110,6 @@ export default function App() {
       {/* {configsButton} */}
     </>
   );
-
 
   const getRoutes = (allRoutes: any[]): ReactElement[] =>
     allRoutes.flatMap(

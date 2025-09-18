@@ -1,6 +1,5 @@
 import { useState, ChangeEvent, useEffect } from "react";
-import { useLocation } from "react-router-dom"; 
-
+import { useLocation } from "react-router-dom";
 
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
@@ -8,7 +7,6 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
-
 
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -20,9 +18,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-
 import SearchIcon from "@mui/icons-material/Search";
-
 
 type Product = {
   id: number;
@@ -32,7 +28,6 @@ type Product = {
   store: string;
   image: string;
 };
-
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -44,7 +39,6 @@ function ProductSearch() {
 
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
-
 
   const [categories, setCategories] = useState<string[]>([]);
   const [stores, setStores] = useState<string[]>(initialStoreFilter ? [initialStoreFilter] : []);
@@ -87,7 +81,6 @@ function ProductSearch() {
     },
   ];
 
-
   const toggleFilter = (
     list: string[],
     setList: React.Dispatch<React.SetStateAction<string[]>>,
@@ -110,7 +103,6 @@ function ProductSearch() {
   };
 
   const filteredProducts = applyFilters();
-
 
   useEffect(() => {
     if (initialStoreFilter) {
